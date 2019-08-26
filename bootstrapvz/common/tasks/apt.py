@@ -197,7 +197,7 @@ class AptUpdate(Task):
     @classmethod
     def run(cls, info):
         log_check_call(['chroot', info.root,
-                        'apt-get', 'update'])
+                        'apt-get', '-o', 'Acquire::Check-Valid-Until=false', 'update'])
 
 
 class AptUpgrade(Task):
